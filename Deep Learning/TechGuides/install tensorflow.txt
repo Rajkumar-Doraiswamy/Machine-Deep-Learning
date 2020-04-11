@@ -1,0 +1,97 @@
+# Last amended: 14/11/2018
+# Objective:
+#		1. tensorflow and keras installation on Windows
+#	           Same steps should also work in Mac	
+#		2. Install atom to facilitate working on keras
+
+
+	It is assumed that Anaconda in already installed.
+	We will first create a virtual environment. A
+	virtual environment is like an isolated container
+	for holding python related packages. 
+
+	Proceed now as follows:	
+
+	i) Open Anaconda prompt as Adminstrator
+
+	ii) Create 'tensorflow' virtual environment and install tensorflow:
+		(Ref: https://www.anaconda.com/blog/developer-blog/tensorflow-in-anaconda/)
+
+		conda create -n tensorflow_env tensorflow
+
+	iii) Activate tensorflow environment:
+		(Ref: https://www.tensorflow.org/install/)
+
+	 	conda activate tensorflow_env
+
+		(this will change the prompt)
+
+	iv)  While in tensorflow environment, install keras:
+		(Ref https://keras.io/#installation)
+
+		pip install keras
+
+	v) Install some other utilities in the same environment:
+
+
+		conda install -c anaconda ipython
+		conda install -c conda-forge matplotlib 
+                conda install -c anaconda jupyter
+                conda install -c anaconda pandas  
+                conda install -c anaconda scikit-learn
+                conda install pillow
+
+
+	vi) Test as follows:
+		a) Start Anaconda prompt as ordinary user
+		b) Activate tensorflow environment:
+
+			conda activate tensorflow_env
+
+		c) Start ipython
+
+			ipython
+
+		d) The following package import should 
+		   not give any error:
+
+                        import numpy as np
+                        from keras.datasets import cifar10
+                        from keras.models import Sequential
+                        from keras.layers import Input, Convolution2D, MaxPooling2D, Dense, Dropout, Flatten
+
+		e) Quit ipython
+		f) Deactivate tensorflow env:
+
+                        conda deactivate tensorflow_env	
+
+############ Install atom & hydrogen ##################################################
+	
+
+	i)   Close Anaocnda Prompt, if open.
+
+	ii)  Install 'atom' editor by downloading 64bit for Windows from
+	     this site:  https://atom.io/
+
+	ii)  Close/quit 'atom', if started after installation.
+	iii) Open Anaconda Prompt as Administrator
+	iv)  Activate tensorflow_env, as:
+
+		conda activate tensorflow_env
+
+	v)  On Anaconda prompt, write, 'atom' to start 'atom'
+	    in this environment.
+
+	vi) After 'atom' has started, install package: 'Hydrogen'
+
+	vii) After installation is complete, quit/close atom, but NOT Anaconda prompt.
+
+	ix)  Issue and execute the following instruction
+	     (Not sure if this instruction works for Mac)
+             (Ref: https://github.com/nteract/hydrogen/issues/899)
+
+		>  python -m ipykernel install --user --name tensorflow_env
+
+##### DONE #####
+		
+	

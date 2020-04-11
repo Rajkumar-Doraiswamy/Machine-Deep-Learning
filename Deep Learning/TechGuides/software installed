@@ -1,0 +1,19 @@
+Last amended: 11th Feb, 2018
+========================
+
+1. Anaconda3-5.0.1
+2. Virtualenv:  tensorflow:  source activate tensorflow / source deactivate tensorflow
+	i)   tensorflow (for python 3.5)
+	ii) keras
+	iii) ResNet50
+3. Virtualenv: opencv :  source activate opencv/ source deactivate opencv
+	i)  Anaconda (python version 3.5)
+	ii) opencv version 3.2	
+       iii) tensorflow
+	iv)keras
+4. Virtualenv: theano :  source activate theano/ source deactivate theano
+	i)  Anaconda (python version 3.5)
+       ii) tensorflow
+	iv)keras
+
+    

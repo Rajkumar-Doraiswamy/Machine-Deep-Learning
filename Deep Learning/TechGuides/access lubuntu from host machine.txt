@@ -1,0 +1,75 @@
+Last amended: 12th Feb, 2018
+==========================
+
+Ref: http://ask.xmodulo.com/access-nat-guest-from-host-virtualbox.html
+
+Objective: 
+		1. Access a guest on VirtualBox, behind NAT from Windows machine
+		2. Transfer files between guest and host
+
+
+Assume:
+	Host machine:  Windows machine
+	Gust machine:  lubuntu on VirtualBox 
+
+Follow the steps as below:
+
+1. Install open-ssh server on lubuntu, as:
+	
+	   sudo apt-get install openssh-server
+
+2. Check that sshd server is started:
+	    
+  		sudo netstat -aunt | grep 22
+
+3.  When not needed stop ssh server, as:
+
+		sudo service sshd stop
+
+4. And start as:
+
+		sudo service sshd start
+
+5. Poweroff lubuntu
+
+6. On host machine download and install bitvise from this site:
+   	
+		https://www.bitvise.com/download-area
+
+		*Download bitwise SSH Client AND NOT bitvise SSH Server
+     	          bitvise is a  better version of putty. It also heps to transfer files
+		  between host and guest using a GUI.
+
+6. Start VirtualBox and for lubuntu, configure network settings in VM, as:
+		
+		i)    Settings->Network->Advanced->Portforwarding
+		ii)  Under Portforwarding, click 'Add' icon and, write, as:
+
+				Name:			Rule1
+				Protocol:		TCP
+				Host IP:		127.0.0.1
+				Host Port:		22
+				Guest IP:		10.0.2.15
+				Guest Port:	22
+		ii) Save the settings
+
+
+7. Start lubuntu
+
+8. Start bitvise on host machine. Coinfigure it as follows:
+
+			Host:					127.0.0.1
+			username:			ashok
+			Port:					22
+			Initial Method:		password
+			PAssword:			ashok
+
+               Save Profile on your machine
+	       In subsequent sessions, you can just load this profile. 	
+		Click Login to work on lubuntu
+
+DONE
+=======================================================
+		
+
+		

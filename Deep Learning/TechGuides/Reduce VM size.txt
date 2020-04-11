@@ -1,0 +1,47 @@
+How to reduce VM size
+=======================
+
+Refer: http://acidx.net/wordpress/2014/03/how-to-reduce-the-size-of-virtualbox-vms/
+
+After deletion of files, VM size does not reduce. It needs to be reduced as follows:
+
+1. Make a copy of your vdi.
+
+2. Disconnect sharedfolder bdata
+
+3. Fill Free Space With Zeros
+==============================
+Now boot up your VM and fill the free space with zeros.
+
+	$ cd ~\
+	$ sudo dd if=/dev/zero of=/emptyfile bs=1M
+
+In another tab, issue command:
+	$ df
+
+Wait till space utilised becomes 100% and dd aborts. dd MUST ABORT.
+Now when dd has aborted, delete file:
+
+	$ sudo rm -rf /emptyfile
+
+This will create one big file that only contains zeros. 
+The file will get as big as the free space was before, 
+so dd will abort when there is no free space left.
+Then you just delete the file.
+
+4. Shutdown VM:
+	$ poweroff
+
+5. Compact The VDI
+On Windows in the c:\program files\oracle\VirtualBox  folder, look for exe files.
+And issue command:
+
+	c:\>VBoxManage modifyhd e:\vm2\centos1.vdi --compact
+
+############
+Some useful VM commands
+It is expected that your machine has a total of 4GB RAM
+
+1. Before closing VM, see to it CentOS is stopped (System-->Shut Down)
+2. Toggle VM in full screen mode as: (Right-ctrl)+F
+

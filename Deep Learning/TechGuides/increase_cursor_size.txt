@@ -1,0 +1,4 @@
+
+Open file /home/ashok/.config/lxsession/Lubuntu/desktop.conf
+
+Search for CursorThemeSize=18. Change size to 64. Save and reboot machine.
