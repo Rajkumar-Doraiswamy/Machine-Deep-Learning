@@ -1,0 +1,23 @@
+Last amended: 20/04/2018
+My notes on Deep Residual Network
+=================================
+
+The output after the first block:
+
+H(X) = F(X) + X
+
+Output after the IInd block:
+
+H(X') = F(X') + X'
+where X' = F(X) + X
+
+Output after the IIIrd block:
+
+H(X") = F(X") + X"
+where X" = F(X") + X"
+
+Thus output of earlier block is not only the input
+to the next block but is also added as an identity.
+==================================================
+
+
